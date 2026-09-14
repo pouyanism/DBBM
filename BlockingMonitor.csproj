@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- عمداً InvariantGlobalization فعال نشده: Microsoft.Data.SqlClient برای مدیریت
+         Collation و برخی عملیات رشته‌ای هنگام اتصال به این اطلاعات نیاز داره و در
+         Invariant Mode با NotSupportedException مواجه میشه. -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- درایور رسمی و به‌روز مایکروسافت برای SQL Server (جایگزین System.Data.SqlClient قدیمی) -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- کوئری SQL به‌صورت فایل جدا نگه داشته میشه تا DBA بتونه بدون لمس کد C# ویرایشش کنه -->
+    <None Update="Sql\BlockingQuery.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
