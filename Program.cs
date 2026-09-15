@@ -49,6 +49,11 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddSignalR();
 builder.Services.AddControllers();
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.TypeInfoResolverChain.Insert(
+        0, new System.Text.Json.Serialization.Metadata.DefaultJsonTypeInfoResolver());
+});
 
 var app = builder.Build();
 

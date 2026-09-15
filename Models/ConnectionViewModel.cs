@@ -10,7 +10,7 @@ namespace BlockingMonitor.Models
 
         [Display(Name = "Database Name")]
         [Required(ErrorMessage = "Database name is required")]
-        public string DatabaseName { get; set; }
+        public string? DatabaseName { get; set; }
 
         [Display(Name = "Username")]
         public string? Username { get; set; }

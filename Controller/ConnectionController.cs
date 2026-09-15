@@ -112,7 +112,7 @@ namespace BlockingMonitor.Controller
                 var request = new ConnectionRequest
                 {
                     ServerName = model.ServerName,
-                    DatabaseName = model.DatabaseName,
+                    DatabaseName = "master",
                     Username = model.Username,
                     Password = model.Password,
                     UseWindowsAuth = model.UseWindowsAuth,
@@ -124,7 +124,7 @@ namespace BlockingMonitor.Controller
                 var testConnString = builder.BuildConnectionString(new ServerCredentials
                 {
                     ServerName = request.ServerName,
-                    DatabaseName = request.DatabaseName,
+                    DatabaseName = "master",
                     Username = request.Username,
                     Password = request.Password,
                     UseWindowsAuth = request.UseWindowsAuth,
